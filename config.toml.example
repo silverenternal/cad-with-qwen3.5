@@ -1,0 +1,13 @@
+# CAD OCR 配置文件
+
+# 默认图片路径（可选，留空表示不默认加载）
+# 支持相对路径和绝对路径
+default_image_path = ""
+
+# 默认本地模型
+# 确保已通过 ollama pull 拉取此模型
+default_local_model = "llava:7b"
+
+# 默认云端模型
+# 支持的多模态模型列表参考 Ollama 官方文档
+default_cloud_model = "qwen3.5:397b-cloud"

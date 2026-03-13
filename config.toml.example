@@ -1,0 +1,98 @@
+# CAD Drawing Recognition - 配置文件
+# 
+# 配置说明：
+# - 90% 用户只需配置 batch_preset 一项
+# - preset 选项：fast(2 并发) | balanced(4 并发，推荐) | aggressive(8 并发)
+# - 高级用户可通过 [concurrency] 覆盖默认值
+#
+# 配置优先级：环境变量 > config.toml > 默认值
+
+# ===== 基本配置（通常无需修改） =====
+
+# 批处理预设档位（推荐配置，修改这一项即可）
+# fast: 2 并发，适合测试或小批量（<50 文件）
+# balanced: 4 并发，推荐默认值，适合中等批量（50-500 文件）
+# aggressive: 8 并发，适合大批量处理（>500 文件）
+batch_preset = "balanced"
+
+# 默认本地模型
+default_local_model = "llava:7b"
+
+# 默认 Cloud 模型
+default_cloud_model = "qwen3.5:397b-cloud"
+
+# 默认图纸类型
+default_drawing_type = "建筑平面图"
+
+# 缓存大小
+cache_max_entries = 20
+
+# 图片最大边长（像素）
+max_image_dimension = 2048
+
+# 批量处理默认问题
+default_batch_question = "分析这张图纸并提取关键信息"
+
+# ===== 配额和限流配置 =====
+
+# 每日配额限制（每用户）
+quota_daily_limit = 100
+
+# 配额降级策略："reject"（安全优先）或 "memory"（可用优先，数据库故障时使用）
+quota_fallback_policy = "reject"
+
+# 限流：每秒请求数（每用户）
+rate_limit_requests_per_second = 10
+
+# 限流：burst 倍数（1.5 表示允许短时间 burst 到 1.5 倍）
+rate_limit_burst_multiplier = 1.5
+
+# 灰度用户每日配额
+gray_release_quota_per_user = 100
+
+# ===== PDF 转换配置 =====
+
+[pdf]
+# PDF 转换 DPI（72-300，推荐 150）
+conversion_dpi = 150
+# 是否启用 PDF 转换
+enabled = true
+# 临时文件目录
+temp_dir = "./tmp/pdf_convert"
+
+# ===== 模板自动选择配置 =====
+
+[template_selection]
+# 是否启用模板自动选择
+enabled = true
+# 置信度阈值（0.0-1.0，低于此值需要人工确认）
+confidence_threshold = 0.6
+# 分类策略："hybrid"（推荐）| "multimodal" | "rule_based"
+strategy = "hybrid"
+# 分类模型（建议使用小模型降低成本）
+model = "llava:7b"
+# 默认模板类型
+default_type = "culvert_layout"
+# 是否启用分类缓存
+enable_cache = true
+# 缓存大小
+cache_max_entries = 1000
+
+# ===== 死信队列配置 =====
+
+# 是否启用死信队列
+dead_letter_queue_enabled = true
+# 死信队列文件路径
+dead_letter_queue_path = "./data/dead_letter_queue.json"
+
+# ===== 数据库配置（可选） =====
+
+# database_url = "sqlite://./data/app.db"
+
+# ===== 高级配置（仅高级用户需要） =====
+
+# 自定义并发配置（覆盖 preset 默认值）
+# [concurrency]
+# batch_concurrency = 4
+# encoding_concurrency = 2
+# api_concurrency = 4

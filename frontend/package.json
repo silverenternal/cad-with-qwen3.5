@@ -1,0 +1,51 @@
+{
+  "name": "cad-ocr-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"src/**/*.{js,vue,css,scss,json}\"",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "src/**/*.{css,scss,json}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "dompurify": "^3.3.3",
+    "pdfjs-dist": "^5.5.207",
+    "pinia": "^3.0.4",
+    "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/dompurify": "^3.0.5",
+    "@vitejs/plugin-vue": "^5.0.0",
+    "@vitest/coverage-v8": "^4.0.18",
+    "@vue/test-utils": "^2.4.6",
+    "eslint": "^9.39.4",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-vue": "^10.8.0",
+    "globals": "^17.4.0",
+    "husky": "^9.1.7",
+    "jsdom": "^28.1.0",
+    "lint-staged": "^16.3.3",
+    "prettier": "^3.8.1",
+    "vite": "^5.0.0",
+    "vitest": "^4.0.18"
+  }
+}

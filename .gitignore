@@ -1,0 +1,76 @@
+# ============ 敏感信息 ============
+.env
+.env.local
+.env.*.local
+.envrc
+*.pem
+*.key
+secrets/
+
+# ============ 配置文件 ============
+config.toml
+config.local.toml
+
+# ============ 运行时生成文件 ============
+openapi.json
+*.txt
+
+# ============ 日志文件 ============
+*.log
+logs/
+telemetry/
+
+# ============ 数据库 ============
+*.db
+*.sqlite
+*.sqlite3
+data/
+
+# ============ 编译产物 ============
+target/
+**/target/
+
+# ============ 前端编译产物 ============
+frontend/dist/
+frontend/node_modules/
+frontend/.vite/
+
+# ============ IDE 配置 ============
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.iml
+
+# ============ 系统文件 ============
+.DS_Store
+Thumbs.db
+._*
+
+# ============ 测试覆盖报告 ============
+coverage/
+*.lcov
+
+# ============ 临时文件 ============
+tmp/
+temp/
+*.tmp
+
+# ============ 调试/诊断输出 ============
+clippy_*.txt
+test_output.*
+cargo_check.log
+pdf_report_*.md
+batch_results_*.json
+batch_results_*.csv
+.batch_progress_*.json
+dialog_*.md
+export_*/
+*.tar.gz
+cad_data_*.json
+
+# ============ 测试数据 ============
+test_batch/
+cad_image/
+ 

@@ -13,7 +13,6 @@ config.local.toml
 
 # ============ 运行时生成文件 ============
 openapi.json
-*.txt
 
 # ============ 日志文件 ============
 *.log
@@ -73,4 +72,25 @@ cad_data_*.json
 # ============ 测试数据 ============
 test_batch/
 cad_image/
+
+# ============ 前端开发报告文件（不提交） ============
+frontend/*_REPORT*.md
+frontend/REFACTOR_*.md
+frontend/ARCHITECTURE_*.md
+frontend/LOGIC_*.md
+frontend/DESIGN_*.md
+frontend/FINAL_*.md
+frontend/FRONTEND_*.md
+
+# ============ 前端测试调试文件 ============
+frontend/public/*-test.html
+frontend/public/test.html
+frontend/public/debug.html
+frontend/proxy_server.py
+
+# ============ 结构验证目录 ============
+structure_ensure/
+
+# ============ 模板示例 ============
+templates/examples/
  
